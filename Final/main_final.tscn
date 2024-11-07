@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=4 uid="uid://dyof64e5y25b0"]
+
+[ext_resource type="Texture2D" uid="uid://bnxh7dsf5skcm" path="res://assets/kenney_platformer-pack-redux/PNG/Backgrounds/colored_grass.png" id="1_ha6qe"]
+[ext_resource type="TileSet" uid="uid://brqhcxu2hu0jk" path="res://assets/default_tile_set.tres" id="2_pbp8x"]
+[ext_resource type="PackedScene" uid="uid://dljdajyetfl0d" path="res://Final/player_final.tscn" id="3_ylbik"]
+
+[node name="Main" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(-123, 403)
+
+[node name="TextureRect" type="TextureRect" parent="World"]
+offset_left = -7584.0
+offset_top = -480.0
+offset_right = 10240.0
+offset_bottom = 544.0
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_ha6qe")
+stretch_mode = 1
+
+[node name="Ground" type="TileMapLayer" parent="World"]
+tile_map_data = PackedByteArray("AAACAAMAAQAAAAEAAADv/wQAAAAAAAEAAADw/wQAAAAAAAEAAADx/wQAAAAAAAEAAADy/wQAAAAAAAEAAADz/wQAAAAAAAEAAAD0/wQAAAAAAAEAAAD1/wQAAAAAAAEAAAD2/wQAAAAAAAEAAAD3/wQAAAAAAAEAAAD4/wQAAAAAAAEAAAD5/wQAAAAAAAEAAAD6/wQAAAAAAAEAAAD7/wQAAAAAAAEAAAD8/wQAAAAAAAEAAAD9/wQAAAAAAAEAAAD+/wQAAAAAAAEAAAD//wQAAAAAAAEAAAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAKAAQAAAAAAAEAAAALAAQAAAAAAAEAAAAMAAQAAAAAAAEAAAANAAQAAAAAAAAAAADu/wQAAAAAAAIAAADu/wMAAQAAAAAAAADu/wIAAQAAAAAAAADu/wEAAQAAAAAAAADu/wAAAQAAAAAAAADu////AQAAAAAAAAANAAMAAQAAAAAAAAANAAIAAQAAAAAAAAANAAEAAQAAAAAAAAANAAAAAQAAAAAAAAANAP//AQAAAAAAAAA=")
+tile_set = ExtResource("2_pbp8x")
+
+[node name="PlayerFinal" parent="." instance=ExtResource("3_ylbik")]
+position = Vector2(-2147, 744)

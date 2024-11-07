@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3p3b1qtkdpvx"]
+
+[ext_resource type="Script" path="res://enum/PlayerEnum.cs" id="1_ky1yk"]
+[ext_resource type="Texture2D" uid="uid://x4fbwovi45cx" path="res://assets/kenney_platformer-pack-redux/PNG/Players/128x256/Green/alienGreen_front.png" id="2_o6xnv"]
+[ext_resource type="Texture2D" uid="uid://bfk5pjgu22yyd" path="res://assets/kenney_platformer-pack-redux/PNG/Players/128x256/Green/alienGreen_duck.png" id="3_g7iba"]
+[ext_resource type="Texture2D" uid="uid://b55untm5ubk7v" path="res://assets/kenney_platformer-pack-redux/PNG/Players/128x256/Green/alienGreen_jump.png" id="4_l4rck"]
+[ext_resource type="Texture2D" uid="uid://bo68ns57xnk41" path="res://assets/kenney_platformer-pack-redux/PNG/Players/128x256/Green/alienGreen_walk1.png" id="5_k8on4"]
+[ext_resource type="Texture2D" uid="uid://crh228m01f8rr" path="res://assets/kenney_platformer-pack-redux/PNG/Players/128x256/Green/alienGreen_walk2.png" id="6_v885o"]
+[ext_resource type="Texture2D" uid="uid://mh5vtvfm1k01" path="res://assets/kenney_platformer-pack-redux/PNG/Players/128x256/Green/alienGreen_stand.png" id="7_gkkii"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nox6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o6xnv")
+}],
+"loop": true,
+"name": &"dive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g7iba")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_l4rck")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_k8on4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v885o")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gkkii")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kue7r"]
+radius = 28.0
+height = 76.0
+
+[node name="PlayerEnum" type="CharacterBody2D"]
+script = ExtResource("1_ky1yk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nox6y")
+animation = &"dive"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 89)
+shape = SubResource("CapsuleShape2D_kue7r")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 297)
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+position = Vector2(0, 48)
+offset = Vector2(0, -500)
+zoom = Vector2(0.8, 0.8)
